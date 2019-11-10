@@ -26,8 +26,15 @@ export interface Customer {
   created_at: string;
   updated_at: string;
 }
+
+//defines initialState type as CustomerState
+//define what customer state will look like
+//will have all customers inside of array
+//err defined as object
+
 export interface CustomerState {
-  customers: Customer[];
+  all: any;
+  err: any;
 }
 //Add Customer's actions
 export interface AddCustomerPendingAction {
@@ -44,7 +51,6 @@ export interface AddCustomerFailedAction {
 //FETCH ALL CUSTOMERS ACTIONS
 export interface FetchAllCustomersPendingAction {
   type: typeof FETCH_ALL_CUSTOMERS_PENDING;
-  payload: Customer[];
 }
 export interface FetchAllCustomersSuccessAction {
   type: typeof FETCH_ALL_CUSTOMERS_SUCCESS;
