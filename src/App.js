@@ -5,19 +5,8 @@ import { useDispatch } from "react-redux";
 import { fetchAllCustomers } from "./store/customer/actionCreators";
 import { fetchAllTeeTimes } from "./store/teetimes/actionCreators";
 import { connect } from "react-redux";
-import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  Button,
-  Row,
-  Container,
-  Col
-} from "reactstrap";
 import axios from "axios";
-import Customers from "./components/customers/Customers";
+
 import Dashboard from "./components/views/Dashboard";
 
 // const App = () => {
@@ -26,15 +15,13 @@ import Dashboard from "./components/views/Dashboard";
 //   </div>
 // }
 
-
 function App(props) {
+  const dispatch = useDispatch();
   useEffect(() => {
     props.fetchAllCustomers();
+    dispatch(fetchAllTeeTimes());
   }, []);
   return <h1>Golf Course Management </h1>;
 }
 
-export default connect(
-  null,
-  { fetchAllCustomers }
-)(App);
+export default connect(null, { fetchAllCustomers })(App);
